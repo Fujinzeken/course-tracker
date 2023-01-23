@@ -6,7 +6,7 @@ const Course = ({ course, refreshCourses, setLoading }) => {
   const markCoursePurchased = async () => {
     setLoading(true);
     try {
-      await fetch("http://localhost:4000/update", {
+      await fetch("https://proxy-server-fujinzeken.onrender.com/update", {
         method: "PATCH",
         body: JSON.stringify({ ...course, purchased: true }),
         headers: {
@@ -23,9 +23,12 @@ const Course = ({ course, refreshCourses, setLoading }) => {
   const deleteCourse = async () => {
     setLoading(true);
     try {
-      await fetch(`http://localhost:4000/delete/${course.id}`, {
-        method: "DELETE",
-      });
+      await fetch(
+        `https://proxy-server-fujinzeken.onrender.com/delete/${course.id}`,
+        {
+          method: "DELETE",
+        }
+      );
       refreshCourses();
       setLoading(false);
     } catch (err) {
