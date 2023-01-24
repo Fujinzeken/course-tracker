@@ -51,7 +51,7 @@ export default function CourseForm({ courseAdded, setLoading }) {
           <div className="form-group">
             <label htmlFor="link">Link</label>
             <input
-              type="text"
+              type="url"
               name="link"
               value={link}
               className="form-control"
