@@ -1,8 +1,6 @@
 import React from "react";
 
 const Course = ({ course, refreshCourses, setLoading }) => {
-  const tagArr = course.fields.Tags.split(",");
-  console.log(tagArr);
   const markCoursePurchased = async () => {
     setLoading(true);
     try {
@@ -44,7 +42,7 @@ const Course = ({ course, refreshCourses, setLoading }) => {
       <p>
         Tags:{" "}
         {course.fields.Tags &&
-          tagArr.map((tag, index) => (
+          course.fields.Tags.split(",").map((tag, index) => (
             <span className="badge badge-primary mr-2" key={index}>
               {tag}
             </span>
